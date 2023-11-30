@@ -1,17 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="client.js" defer></script>
-    <title>Document</title>
-</head>
-<body>
-<form>
-    <label>Target Name</label> <input type = "text" id="Target_Name"> <br />
-    <label>Comment</label>  <input type = "text" id = "Comment" style = "width:300;height:200;font-size:30px"> <br/>
-    <label>Submit </label>  <button type = "submit" id = "POST"> POST </button> <br />
 
-</form>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="client.js" defer></script>
+  <title>Sentiment</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      content: [
+        "./public/index.html",
+      ],
+      theme: {
+        extend: {
+          fontFamily: {
+            nanum: ['Nanum Gothic']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google web font Config -->
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet" />
+</head>
+
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+  <div class="flex items-center justify-center min-h-[450px] drop-shadow-lg">
+    <div class="rounded-lg bg-gray-50 px-16 py-14">
+      <div class="flex mb-6">
+        <input placeholder="이름을 작성해주세요" type="text" id="targetName"
+          class="border form-input rounded px-4 py-2 w-[230px] text-center font-normal text-gray-600"></input>
+      </div>
+      <textarea placeholder="평가를 작성해주세요" id="comment"
+        class="border form-input rounded px-4 py-2 h-[200px] w-[230px] text-center font-normal text-gray-600"></textarea>
+
+      <button id="post"
+        class="mx-auto mt-10 block rounded-xl border-4 border-transparent bg-orange-400 px-6 py-3 text-center text-base font-medium text-orange-100 outline-8 hover:outline hover:duration-300">
+        분석 시작
+      </button>
+    </div>
+  </div>
+  <p id="analysisResult"></p>
+  <div style="display: none" class="flex justify-center">
+    <table class="w-full my-0 align-middle text-dark border-neutral-200">
+      <thead class="align-bottom flex space-x-4">
+        <tr class="font-semibold text-[0.95rem] text-secondary-dark">
+          <th class="pb-3 text-start min-w-[175px]">NAME</th>
+          <th class="pb-3 text-end min-w-[100px]">CONTENTS</th>
+          <th class="pb-3 text-end min-w-[100px]">POSITIVE</th>
+          <th class="pb-3 pr-12 text-end min-w-[175px]">NEGATIVE</th>
+          <th class="pb-3 pr-12 text-end min-w-[100px]">NEUTRAL</th>
+          <th class="pb-3 text-end min-w-[50px]">RESULT</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+
 </body>
-</html> 
+
+</html>
