@@ -1,7 +1,7 @@
 const SENTIMENT = {
   negative: '부정적',
   positive: '긍정적',
-  neutral: '중간',
+  neutral: '중립',
 };
 
 const targetName = document.getElementById('targetName');
