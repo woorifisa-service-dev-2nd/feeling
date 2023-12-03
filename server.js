@@ -1,5 +1,7 @@
 const express = require('express');
 
+const request = require('request');
+
 const app = express();
 
 const CLIENT_ID = '13ht3kea0r';
@@ -8,15 +10,11 @@ const CLIENT_SECRET_ID = 'vVkCGE4dgDNVfC1o5iZZaIfmwuGPbrREUguOHQmX';
 app.use(express.static('public'));
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  console.log('http://localhost:3000/ called');
-  res.sendFile('index.html');
-});
+app.get('/', (req, res) => res.sendFile('index.html'));
 
 // localhost:3000/submitComment로 요청 시 동작할 핸들러
 app.post('/submitComment', (req, res) => {
   const url = 'https://naveropenapi.apigw.ntruss.com/sentiment-analysis/v1/analyze';
-  const request = require('request');
 
   const options = {
     url,
