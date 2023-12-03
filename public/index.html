@@ -26,9 +26,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet" />
 </head>
 
-<body class="flex items-center justify-center min-h-screen bg-gray-100">
-  <div
-    class="relative bg-white px-6 pt-10 pb-8 shadow-xl border-gray-300 outline-8 ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
+<body class="flex items-center justify-center min-h-screen bg-gray-100 gap-8">
+  <div class="h-[33rem] bg-white px-6 pt-10 pb-8 shadow-xl border-gray-300 outline-8">
     <div class="mx-auto max-w-md">
       <h2 class="text-2xl font-bold">인사 평가</h2>
 
@@ -37,16 +36,16 @@
           <p>인사 평가를 작성하고 감정을 분석해보세요.</p>
           <ul class="space-y-4 w-full">
             <li class="flex items-top w-full">
-              <div class="ml-4 w-full">
-                <p class="py-0 text-gray-700" id="targetName">이름</p>
-                <input type="text"
+              <div class="w-full">
+                <p class="py-0 text-gray-700">이름</p>
+                <input type="text" id="targetName"
                   class="focus:outline px-4 py-2 mt-1 w-full rounded-md bg-gray-100 border-gray-300 shadow-sm focus:border-transparent "
                   placeholder="이름을 작성해주세요" />
               </div>
             </li>
 
             <li class="flex items-top">
-              <div class="w-full ml-4">
+              <div class="w-full">
                 <p class="text-gray-700">평가 내용</p>
                 <textarea placeholder="평가를 작성해주세요" id="comment"
                   class=" focus:outline px-4 py-2 h-[100px] mt-1 w-full bg-gray-100 rounded-md border-gray-300 shadow-sm focus:border-transparent"></textarea>
@@ -65,26 +64,16 @@
       </div>
     </div>
   </div>
-
-  <div id="resultContainer"
-    class="hidden relative bg-white px-6 pt-10 pb-8 shadow-xl border-gray-300 outline-8 ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:rounded-lg sm:px-10">
-    <div class="p-1">
-    </div>
-
-    <div class="p-8">
-      <h2 class="text-3xl font-bold text-gray-800 mb-4" id="analysisResult"></h2>
-      <p class="text-gray-600 mb-6"><span id="targetName"></span>님에 대한 감정분석 결과입니다.</p>
+  <div id="resultContainer" class="h-[33rem] hidden bg-white shadow-xl border-gray-300 outline-8">
+    <div class="p-10">
+      <p class="text-gray-600 mb-12"><span class="font-bold" id="targetedName"></span>님에 대한 평가의 감정분석 결과입니다.</p>
+      <h2 class="text-3xl font-bold text-gray-800 mb-5" id="analysisResult"></h2>
       <div id="imgPosition"></div>
-
-      <ul class="text-sm text-gray-600 mb-6 mt-6" id="sentenceList">
-      </ul>
-    </div>
-
-    <div class="p-8" id="container">
-      <div></div>
+      <div class="pt-16 flex-col" id="container">
+        <div></div>
+      </div>
     </div>
   </div>
-
 </body>
 
 </html>
