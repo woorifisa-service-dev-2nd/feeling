@@ -4,9 +4,6 @@ const request = require('request');
 
 const app = express();
 
-const CLIENT_ID = '13ht3kea0r';
-const CLIENT_SECRET_ID = 'vVkCGE4dgDNVfC1o5iZZaIfmwuGPbrREUguOHQmX';
-
 app.use(express.static('public'));
 app.use(express.json());
 
@@ -21,8 +18,8 @@ app.post('/submitComment', (req, res) => {
     body: JSON.stringify(req.body),
     headers: {
       'Content-Type': 'application/json',
-      'X-NCP-APIGW-API-KEY-ID': CLIENT_ID,
-      'X-NCP-APIGW-API-KEY': CLIENT_SECRET_ID,
+      'X-NCP-APIGW-API-KEY-ID': process.env.CLIENT_ID,
+      'X-NCP-APIGW-API-KEY': process.env.CLIENT_SECRET_ID,
     },
   };
 
