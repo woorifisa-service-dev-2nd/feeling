@@ -1,8 +1,12 @@
+const dotenv = require('dotenv');
+
 const express = require('express');
 
 const request = require('request');
 
 const app = express();
+
+dotenv.config();
 
 app.use(express.static('public'));
 app.use(express.json());
