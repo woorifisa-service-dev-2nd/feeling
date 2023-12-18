@@ -1,3 +1,4 @@
+import { validateKorean, validateNotEmpty } from './validation.js'
 const SENTIMENT = {
   negative: '부정적',
   positive: '긍정적',
@@ -74,10 +75,10 @@ const fetchAPI = async (content) => {
     .catch((e) => console.error(e));
 };
 
-const submitAnalysis = () => {
-  if (targetName.value !== '' || comment.value !== '') {
-    fetchAPI(comment.value);
+const submit = () => {
+  if (validateKorean(comment.value) && validateNotEmpty(comment.value)) {
+    fetchAPI(comment.value)
   }
 };
 
-submitButton.addEventListener('click', submitAnalysis);
+submitButton.addEventListener('click', submit);
